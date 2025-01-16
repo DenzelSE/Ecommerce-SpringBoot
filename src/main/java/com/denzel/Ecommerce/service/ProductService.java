@@ -18,4 +18,8 @@ public class ProductService {
     public List<Product> getAllProducts(){
         return repository.findAll();
     }
+
+    public Product geProductById(int Id){
+        return repository.findById(Id).get();
+    }
 }

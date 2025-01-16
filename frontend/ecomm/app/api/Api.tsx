@@ -19,13 +19,15 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 export async function getProduct(id: number):Promise<Product>{
+    console.log("id:"+ id)
     const results = await fetch(`${API_URL}/products/${id}`);
     
     console.log("i get here")
 
     if(!results.ok){
-        throw new Error("failed to fetch product")
+        throw new Error("failed to fetch product");
     }
+
     return results.json();
 }
 
