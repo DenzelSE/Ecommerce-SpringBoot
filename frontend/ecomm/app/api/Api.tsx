@@ -8,12 +8,24 @@ interface Product{
 const API_URL = 'http://localhost:8080/api';
 
 export async function getProducts(): Promise<Product[]> {
-    const res = await fetch(`${API_URL}/products`);
+    const results = await fetch(`${API_URL}/products`);
 
-    if(!res.ok){
+    if(!results.ok){
         throw new Error('failed to fetch products')
     }
 
-    return res.json();
+    return results.json();
     
 }
+
+export async function getProduct(id: number):Promise<Product>{
+    const results = await fetch(`${API_URL}/products/${id}`);
+    
+    console.log("i get here")
+
+    if(!results.ok){
+        throw new Error("failed to fetch product")
+    }
+    return results.json();
+}
+
