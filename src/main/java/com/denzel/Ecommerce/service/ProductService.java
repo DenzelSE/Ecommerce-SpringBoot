@@ -22,4 +22,16 @@ public class ProductService {
     public Product geProductById(int Id){
         return repository.findById(Id).get();
     }
+
+    public void addProduct(Product prod){
+        repository.save(prod);
+    }
+
+    public void updateProduct(Product prod){
+        repository.save(prod);
+    }
+
+    public void deleteProduct(int id){
+        repository.deleteById(id);
+    }
 }
