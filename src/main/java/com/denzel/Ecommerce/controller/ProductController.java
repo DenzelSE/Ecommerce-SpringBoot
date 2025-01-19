@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,7 +56,18 @@ public class ProductController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-    }   
+    } 
+
+    @GetMapping("/products/{prodId}/image")
+    public ResponseEntity<byte[]> getImageByproductId(@PathVariable int prodId){
+
+        Product product = service.geProductById(prodId);
+        byte[] imageFile = product.getImageData();
+
+        return ResponseEntity.ok()
+                    .contentType(MediaType.valueOf(product.getImageType()))
+                    .body(imageFile);
+    }
 
     @PutMapping("/products")
     public void updateProduct(@RequestBody Product prod){
