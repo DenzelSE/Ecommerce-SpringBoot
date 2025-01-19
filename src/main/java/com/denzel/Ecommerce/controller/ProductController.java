@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.denzel.Ecommerce.model.Product;
 import com.denzel.Ecommerce.service.ProductService;
@@ -44,8 +46,15 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public void addProduct(@RequestBody Product prod){
-        service.addProduct(prod);
+    public ResponseEntity<?> addProduct(@RequestPart Product prod, @RequestPart MultipartFile imageFile){
+
+        try {
+            Product product1 = service.addProduct(prod, imageFile);
+            return new ResponseEntity<>(product1, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }   
 
     @PutMapping("/products")
