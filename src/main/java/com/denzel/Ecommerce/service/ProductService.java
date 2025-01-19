@@ -13,14 +13,14 @@ import com.denzel.Ecommerce.repository.ProductRepository;
 public class ProductService {
 
     @Autowired
-    public ProductRepository repository;
+    private ProductRepository repository;
     
     public List<Product> getAllProducts(){
         return repository.findAll();
     }
 
     public Product geProductById(int Id){
-        return repository.findById(Id).get();
+        return repository.findById(Id).orElse(null);
     }
 
     public void addProduct(Product prod){
