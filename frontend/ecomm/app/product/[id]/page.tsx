@@ -4,7 +4,7 @@ import ProductCardID from "@/app/components/ProductCardID";
 
 
 export default async function Product({params}:any) {
-    const {id} = params;
+    const {id} = await params;
     const product = await getProduct(id)
     console.log(product);
     return (
