@@ -1,3 +1,7 @@
+import axios from "axios";
+import { ok } from "node:assert";
+import { json } from "node:stream/consumers";
+
 interface Product{
     id: number;
     name: string;
