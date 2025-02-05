@@ -22,8 +22,6 @@ export async function getProduct(id: number):Promise<Product>{
     console.log("id:"+ id)
     const results = await fetch(`${API_URL}/products/${id}`);
     
-    console.log("i get here")
-
     if(!results.ok){
         throw new Error("failed to fetch product");
     }
