@@ -6,9 +6,9 @@ interface Product{
     desription: string;
     price: number;
     category: string;
-    date: Date;
+    releaseDate: string;
     available: boolean;
-    brand:string
+    brand:string;
 }
 
 export default function ProductCardID({product}: {product: Product}){
@@ -22,7 +22,7 @@ export default function ProductCardID({product}: {product: Product}){
                 <p className="text-gra-600">{product.category}</p>
                 <p className="text-gra-600 mb-2">{product.desription}</p>
                 <p className="text-gra-600 mb-2">{product.brand}</p>
-                <p className="text-gra-600 mb-2">{product.available}</p>
+                <p className="text-gra-600 mb-2">{product.releaseDate}</p>
 
             </div>
         </Link>

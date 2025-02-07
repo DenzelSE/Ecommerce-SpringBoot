@@ -4,7 +4,8 @@ interface Product{
     id: number;
     name: string;
     desription: string;
-    price: number
+    price: number;
+    releaseDate: string
 }
 
 export default function ProductCard({product}: {product: Product}){

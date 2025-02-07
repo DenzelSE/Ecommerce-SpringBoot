@@ -7,11 +7,10 @@ import axios from "axios"
 interface ProductState {
   name: string
   brand: string
-  description: string
+  desription: string
   price: string
   category: string
-  stockQuantity: string
-  releaseDate: string
+  release_date: string
   productAvailable: boolean
 }
 
@@ -19,11 +18,10 @@ const AddProduct: React.FC = () => {
   const [product, setProduct] = useState<ProductState>({
     name: "",
     brand: "",
-    description: "",
+    desription: "",
     price: "",
     category: "",
-    stockQuantity: "",
-    releaseDate: "",
+    release_date: "",
     productAvailable: false,
   })
   const [image, setImage] = useState<File | null>(null)
@@ -48,7 +46,7 @@ const AddProduct: React.FC = () => {
     formData.append("product", new Blob([JSON.stringify(product)], { type: "application/json" }))
 
     try {
-      const response = await axios.post("http://localhost:8080/api/product", formData, {
+      const response = await axios.post("http://localhost:8080/api/products", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -100,7 +98,7 @@ const AddProduct: React.FC = () => {
               type="text"
               className="form-control"
               placeholder="Add product description"
-              value={product.description}
+              value={product.desription}
               name="description"
               onChange={handleInputChange}
               id="description"
@@ -144,15 +142,7 @@ const AddProduct: React.FC = () => {
             <label className="form-label">
               <h6>Stock Quantity</h6>
             </label>
-            <input
-              type="number"
-              className="form-control"
-              placeholder="Stock Remaining"
-              onChange={handleInputChange}
-              value={product.stockQuantity}
-              name="stockQuantity"
-              id="stockQuantity"
-            />
+            
           </div>
           <div className="col-md-4">
             <label className="form-label">
@@ -161,7 +151,7 @@ const AddProduct: React.FC = () => {
             <input
               type="date"
               className="form-control"
-              value={product.releaseDate}
+              value={product.release_date}
               name="releaseDate"
               onChange={handleInputChange}
               id="releaseDate"

@@ -8,13 +8,6 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              {/* <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ABClogo-Black_transparent_bg-cpHmeRp09XBDxIB5KKbaf0lok7mLwg.png"
-                alt="Africa's Blockchain Club Logo"
-                width={40}
-                height={40}
-                className="h-10 w-auto"
-              /> */}
               <span className="text-xl font-bold text-foreground hidden sm:inline">Ecomm</span>
             </Link>
           </div>
