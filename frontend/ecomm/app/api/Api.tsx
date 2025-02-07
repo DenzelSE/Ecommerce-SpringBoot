@@ -11,6 +11,7 @@ interface Product{
     category: string;
     date: Date;
     available: boolean;
+    releaseDate: string;
 }
 
 const API_URL = 'http://localhost:8080/api';

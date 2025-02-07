@@ -23,6 +23,7 @@ export default function ProductCardID({product}: {product: Product}){
                 <p className="text-gra-600 mb-2">{product.desription}</p>
                 <p className="text-gra-600 mb-2">{product.brand}</p>
                 <p className="text-gra-600 mb-2">{product.releaseDate}</p>
+                <p className="text-gra-600 mb-2">{product.available}</p>
 
             </div>
         </Link>

@@ -1,5 +1,4 @@
 import { getProduct } from "@/app/api/Api";
-import ProductCard from "../../components/ProductCard";
 import ProductCardID from "@/app/components/ProductCardID";
 
 
@@ -7,6 +6,7 @@ export default async function Product({params}:any) {
     const {id} = await params;
     const product = await getProduct(id)
     console.log(product);
+    
     return (
         <div>
             <p>Product</p>
